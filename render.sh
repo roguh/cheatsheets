@@ -1,8 +1,15 @@
 input=$1
 format=$2
-pandoc=./pandoc
-common=$pandoc/header.yaml
+confs=./pandoc
+common=$confs/header.yaml
+
+# from=org+yaml_metadata_block
+from=markdown+definition_lists
+pandoc_opts="--from $from --template $confs/template.latex --filter $confs/subsection2colorbox.py --standalone"
+
 outdir=out/
 output=$outdir/`basename ${input%.md}.$format`
+
 mkdir -p $outdir
-pandoc --template $pandoc/template.latex --filter $pandoc/section2colorbox.py --standalone --from markdown+definition_lists $common $input --output $output
+set -x
+pandoc $pandoc_opts $common $input --output $output

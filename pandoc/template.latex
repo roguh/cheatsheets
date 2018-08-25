@@ -223,7 +223,6 @@ $endif$
     
 $if(compacttoc)$
 \usepackage{titletoc}
-\titleformat*\section{\bfseries\large}
 \titlecontents*{section}[0em]{\space\bfseries}{\thecontentslabel~}{}{}[\space\textbullet\space]
 \titlecontents*{subsection}[0em]{\space\normalfont}{\thecontentslabel~}{}{}[ ][. ][]
 \titlecontents*{subsubsection}[0em]{\space\itshape\small}{}{}{}[ (][. ][)]
@@ -255,8 +254,12 @@ $if(toc)$
 $endif$
 $endif$
 
+$if(multicols2)$
 \begin{multicols}{2}
+$endif$
+$if(globaltcolorbox)$
 \begin{tcolorbox}
+$endif$
 
 $for(include-before)$
 $include-before$
@@ -300,6 +303,12 @@ $for(include-after)$
 $include-after$
 
 $endfor$
+
+$if(globaltcolorbox)$
 \end{tcolorbox}
+$endif$
+$if(multicols2)$
 \end{multicols}
+$endif$
+
 \end{document}
