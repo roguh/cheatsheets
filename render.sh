@@ -1,11 +1,16 @@
 #!/bin/sh
 input=$1
-format=$2
+format=${2:-pdf}
 confs=./pandoc
 name=$(basename ${input%.*}.$format)
 outdir=out
 output=$outdir/$name
 common=$confs/header.yaml
+
+if [ "$#" -lt 1 ]; then
+  echo USAGE: $0 filename.{org,md} [output_format_ext=pdf]
+  exit 1
+fi
 
 echo $input
 case ${input##*.} in
