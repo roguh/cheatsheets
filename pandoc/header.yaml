@@ -1,5 +1,10 @@
 ---
 geometry: margin=0.35in,bottom=0.85in
+compacttoc: true
+fancyhead: \cfoot
+subparagraph: true
+multicols2: true
+globaltcolorbox: true
 header-includes:
     - \renewcommand*\familydefault{\sfdefault}
     - \usepackage[notmath]{sansmathfonts}
@@ -9,6 +14,7 @@ header-includes:
     - \usepackage{titlesec}
     - \titlespacing{\section}{0pt}{0pt}{0pt}
     - \titlespacing{\subsection}{0pt}{0pt}{0pt}
+    - \titlespacing{\subsubsection}{0pt}{0pt}{0pt}
 
     - \usepackage{multicol}
       
@@ -27,11 +33,6 @@ header-includes:
     - \setlength{\droptitle}{-0.65in}
     
     - \usepackage{lipsum}
-compacttoc: true
-fancyhead: \cfoot
-subparagraph: true
-multicols2: true
-globaltcolorbox: true
 ---
 
 

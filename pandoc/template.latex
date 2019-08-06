@@ -223,9 +223,9 @@ $endif$
     
 $if(compacttoc)$
 \usepackage{titletoc}
-\titlecontents*{section}[0em]{\space\bfseries}{\thecontentslabel~}{}{}[\space\textbullet\space]
-\titlecontents*{subsection}[0em]{\space\normalfont}{\thecontentslabel~}{}{}[ ][. ][]
-\titlecontents*{subsubsection}[0em]{\space\itshape\small}{}{}{}[ (][. ][)]
+\titlecontents*{section}[0em]{\space\bfseries}{}{}{}[\space\textbullet\space]
+\titlecontents*{subsection}[0em]{\space\normalfont}{}{}{}[ (][, ][)]
+\titlecontents*{subsubsection}[0em]{\itshape\small}{}{}{}[ (][, ][)]
 $endif$
 
 \begin{document}

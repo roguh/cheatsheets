@@ -1,14 +1,25 @@
+#!/bin/sh
 input=$1
 format=$2
 confs=./pandoc
+name=$(basename ${input%.*}.$format)
+outdir=out
+output=$outdir/$name
 common=$confs/header.yaml
 
-# from=org+yaml_metadata_block
-from=markdown+definition_lists
-pandoc_opts="--from $from --template $confs/template.latex --filter $confs/subsection2colorbox.py --standalone"
+echo $input
+case ${input##*.} in
+    org) 
+        set -x
+        pandoc $input --output $output.md
+        set +x
+        input=$output.md
+        ;;
+esac
 
-outdir=out/
-output=$outdir/`basename ${input%.md}.$format`
+from="--from markdown+definition_lists"
+pandoc_opts="$from --template $confs/template.latex --filter $confs/subsection2colorbox.py --standalone"
+
 
 mkdir -p $outdir
 set -x
