@@ -8,7 +8,7 @@ output=$outdir/$name
 common=$confs/header.yaml
 
 if [ "$#" -lt 1 ]; then
-  echo USAGE: $0 filename.{org,md} [output_format_ext=pdf]
+  echo USAGE: $0 filename.\{org,md\} [output_format_ext=pdf]
   exit 1
 fi
 
@@ -24,7 +24,6 @@ esac
 
 from="--from markdown+definition_lists"
 pandoc_opts="$from --template $confs/template.latex --filter $confs/subsection2colorbox.py --standalone"
-
 
 mkdir -p $outdir
 set -x
